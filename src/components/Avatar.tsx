@@ -1,4 +1,5 @@
 "use client";
+import usePrefersReducedMotion from "@/hooks/usePrefersReduceMotion";
 import { ImageField } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import clsx from "clsx";
@@ -11,13 +12,19 @@ type AvatarProps = {
 };
 export default function Avatar({ image, className }: AvatarProps) {
   const component = useRef(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
     let ctx = gsap.context(() => {
       gsap.fromTo(
         ".avatar",
         { opacity: 0, scale: 1.4 },
-        { scale: 1, opacity: 1, duration: 1.3, ease: "power3.inOut" },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: prefersReducedMotion ? 0 : 1.3,
+          ease: "power3.inOut",
+        },
       );
 
       window.onmousemove = (e) => {
@@ -57,7 +64,7 @@ export default function Avatar({ image, className }: AvatarProps) {
       };
     }, component);
     return () => ctx.revert();
-  }, []);
+  }, [prefersReducedMotion]);
 
   return (
     <div ref={component} className={clsx("relative h-full w-full", className)}>

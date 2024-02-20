@@ -27,7 +27,7 @@ export default function ContentList({
   const lastMousePos = useRef({ x: 0, y: 0 });
   const [currentItem, setCurrentItem] = useState<null | number>(null);
 
-  const urlPrefix = contentType === "Project" ? "/project" : "blog";
+  const urlPrefix = contentType === "Project" ? "/projects" : "blog";
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -49,8 +49,8 @@ export default function ContentList({
           },
         );
       });
-    });
-    return () => ctx.revert();
+      return () => ctx.revert();
+    }, component);
   }, []);
 
   useEffect(() => {
@@ -96,6 +96,14 @@ export default function ContentList({
     });
   });
 
+  useEffect(() => {
+    contentImages.forEach((url) => {
+      if (!url) return;
+      const img = new Image();
+      img.src = url;
+    });
+  }, [contentImages]);
+
   const onMouseEnter = (index: number) => {
     setCurrentItem(index);
   };
@@ -111,7 +119,7 @@ export default function ContentList({
         onMouseLeave={() => onMouseLeave()}
       >
         {items.map((item, index) => (
-          <>
+          <div key={index}>
             {isFilled.keyText(item.data.title) && (
               <li
                 key={index}
@@ -140,7 +148,7 @@ export default function ContentList({
                 </Link>
               </li>
             )}
-          </>
+          </div>
         ))}
       </ul>
       <div
