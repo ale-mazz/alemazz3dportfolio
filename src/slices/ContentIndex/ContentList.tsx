@@ -31,7 +31,7 @@ export default function ContentList({
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      itemsRef.current.forEach((item, index) => {
+      itemsRef.current.forEach((item) => {
         gsap.fromTo(
           item,
           { opacity: 0, y: 20 },
