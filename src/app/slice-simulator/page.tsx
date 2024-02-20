@@ -1,9 +1,8 @@
 "use client";
 
-import { SliceSimulator } from "@slicemachine/adapter-next/simulator";
+import { components } from "@/slices";
 import { SliceZone } from "@prismicio/react";
-
-import { components } from '@/slices';
+import { SliceSimulator } from "@slicemachine/adapter-next/simulator";
 
 export default function SliceSimulatorPage() {
   return (
