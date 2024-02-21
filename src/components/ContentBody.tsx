@@ -18,7 +18,9 @@ export default function ContentBody({
         month: "long",
         day: "numeric",
       };
-      return new Intl.DateTimeFormat("en-US", dateOptions).format(new Date());
+      return new Intl.DateTimeFormat("en-US", dateOptions).format(
+        new Date(date),
+      );
     }
   }
 
