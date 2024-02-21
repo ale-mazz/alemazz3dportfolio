@@ -6,6 +6,7 @@ import clsx from "clsx";
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 import "./globals.css";
+import React from "react";
 
 const urbanist = Urbanist({ subsets: ["latin"] });
 
