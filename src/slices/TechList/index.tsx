@@ -77,14 +77,14 @@ const TList = ({ slice }: TListProps): JSX.Element => {
               return (
                 <React.Fragment key={index}>
                   <span
-                    className="tech-item text-8xl font-extrabold uppercase tracking-tight"
+                    className="tech-item text-7xl font-extrabold uppercase tracking-tight md:text-8xl"
                     style={{
                       color: index === 7 && tech_color ? tech_color : "inherit",
                     }}
                   >
                     {tech_name}
                   </span>
-                  <span className="text-3xl">
+                  <span className="text-2xl md:text-3xl">
                     <MdCircle />
                   </span>
                 </React.Fragment>
