@@ -12,9 +12,6 @@ import React from "react";
 
 const urbanist = Urbanist({ subsets: ["latin"] });
 
-// The number of seconds before the page should be revalidated.
-export const revalidate = 60;
-
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
   const settings = await client.getSingle("settings");
