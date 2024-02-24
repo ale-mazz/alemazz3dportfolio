@@ -29,9 +29,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="scrollbar scrollbar-thumb-yellow-300 scrollbar-track-slate-900 overflow-y-scroll bg-slate-900 text-slate-100"
+      className="scrollbar scrollbar-thumb-yellow-300 scrollbar-track-slate-900 overflow-x-hidden overflow-y-scroll bg-slate-900 text-slate-100"
     >
-      <body className={clsx(urbanist.className, "relative min-h-screen")}>
+      <body
+        className={clsx(
+          urbanist.className,
+          "relative min-h-screen w-full overflow-x-hidden",
+        )}
+      >
         <Header />
         {children}
         <Analytics />
